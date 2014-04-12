@@ -54,7 +54,7 @@ Input coordinates are: (0,0)(4,4)(-3,-5)(2,2)
 ### One of rectangle is in another.
 In this case also it should give true/Yes.
 
-![Sample 2](/img/sample2.png)
+![Sample 2](/img/sample3.png)
 
 Input coordinates are: (0,0)(4,4)(-2,-2)(5,5)
 
@@ -66,7 +66,7 @@ or
 
 This should give true/Yes.
 
-![Sample 2](/img/sample2.png)
+![Sample 2](/img/sample4.png)
 
 Input coordinates are: (0,0)(4,4)(2,-5)(10,2)
 
