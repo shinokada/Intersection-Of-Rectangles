@@ -37,7 +37,7 @@ Two rectangles must not have the same size. Input is 4 coordinates of two rectan
 
 ## Sample
 
-### Same size 
+### No/false for Same size 
 Even though the following images are touching, since they have the same size the result should give false.
 
 ![Sample 1](/img/sample1.png)
@@ -51,7 +51,7 @@ The following should give true.
 
 Input coordinates are: (0,0)(4,4)(-3,-5)(2,2)
 
-### One of rectangle is in another.
+### Yes/true for One of rectangle is in another.
 In this case also it should give true/Yes.
 
 ![Sample 2](/img/sample3.png)
@@ -62,7 +62,7 @@ or
 
 (-2,-2)(5,5)(0,0)(4,4)
 
-### Unidentified coordinate is in another.
+### Yes/true for Unidentified coordinate is in another.
 
 This should give true/Yes.
 
