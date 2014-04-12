@@ -11,22 +11,17 @@ class Intersection
     @yb2 = yb2.to_i
   end
   
-  
   # compare sizes 
   # both can't have the same size
   def check_size?
     rec1 = [(@xa2-@xa1).abs, (@ya2-@ya1).abs]
     rec2 = [(@xb2-@xb1).abs, (@yb2-@yb1).abs]
     rec1 == rec2 or rec1 == rec2.reverse
-    # rec1<<rec2.reverse
   end
 
   def create_arr
     [(@xa1..@xa2).to_a.product((@ya1..@ya2).to_a),(@xb1..@xb2).to_a.product((@yb1..@yb2).to_a)] 
   end
-  # def self.create_arr(xa1, ya1, xa2, ya2)
-  #   ((xa1.to_i)..(xa2.to_i)).to_a.product(((ya1.to_i)..(ya2.to_i)).to_a)
-  # end
 
   def included?
     if !check_size?
