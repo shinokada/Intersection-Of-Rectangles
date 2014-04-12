@@ -6,7 +6,7 @@
 
 ## Problem
 
-Two rectangles don't have the same size. Input is 4 coordinates of two rectangle as seen in the image above. If they intersect or touch each other, then output should be YES. 
+Two rectangles must not have the same size. Input is 4 coordinates of two rectangle as seen in the image above. If they intersect or touch each other, then output should be YES. 
 
 
 ## Input
