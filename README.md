@@ -36,8 +36,11 @@ Two rectangles don't have the same size. Input is 4 coordinates of two rectangle
     YES
 
 ## Sample
+
 Even though the following images are touching, since they have the same size the result should give false.
+
 ![Sample 1](/img/sample1.png)
 
 The following should give true.
+
 ![Sample 2](/img/sample2.png)
