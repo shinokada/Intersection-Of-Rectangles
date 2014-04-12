@@ -35,7 +35,7 @@ Two rectangles must not have the same size. Input is 4 coordinates of two rectan
     NO
     YES
 
-## Other Samples
+## Other Examples
 
 ### No/false for Same size 
 Even though the following images are touching, since they have the same size the result should give false.
