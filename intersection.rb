@@ -17,6 +17,8 @@ class Intersection
     if !check_size?(xa1, ya1, xa2, ya2, xb1, yb1, xb2, yb2)
       create_arr = ((xa1.to_i)..(xa2.to_i)).to_a.product(((ya1.to_i)..(ya2.to_i)).to_a)
       create_arr.include?([xb1, yb1]) || create_arr.include?([xb2,yb2])
+    else
+      false
     end
   end
 

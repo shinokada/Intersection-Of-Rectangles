@@ -33,7 +33,7 @@ describe Intersection do
     @xb6 = 2.0
     @yb6 = -1.0
 
-    #YES
+    #No since they are the same size
     @xa7 = 1.0
     @ya7 = 1.0
     @xa8 = 2.0
@@ -49,6 +49,7 @@ describe Intersection do
   specify{ expect(Intersection.included?(@xa1, @ya1, @xa2, @ya2, @xb1, @yb1, @xb2, @yb2)). to eq true }
   specify{ expect(Intersection.included?(@xa3, @ya3, @xa4, @ya4, @xb3, @yb3, @xb4, @yb4)). to eq true }
   specify{ expect(Intersection.included?(@xa5, @ya5, @xa6, @ya6, @xb5, @yb5, @xb6, @yb6)). to eq false }
+  specify{ expect(Intersection.included?(@xa7, @ya7, @xa8, @ya8, @xb7, @yb7, @xb8, @yb8)). to eq false}
               
   specify{ expect(Intersection.check_size?(@xa7, @ya7, @xa8, @ya8, @xa7, @ya7, @xa8, @ya8)). to eq true }
   specify{ expect(Intersection.check_size?(@xa7, @ya7, @xa8, @ya8, @xb7, @yb7, @xb8, @yb8)). to eq true }
