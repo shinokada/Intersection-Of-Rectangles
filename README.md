@@ -37,10 +37,40 @@ Two rectangles must not have the same size. Input is 4 coordinates of two rectan
 
 ## Sample
 
+### Same size 
 Even though the following images are touching, since they have the same size the result should give false.
 
 ![Sample 1](/img/sample1.png)
 
+Input coordinates are: (1,1)(2,3)(2,1)(4,2)
+
+### True/Yes
 The following should give true.
 
 ![Sample 2](/img/sample2.png)
+
+Input coordinates are: (0,0)(4,4)(-3,-5)(2,2)
+
+### One of rectangle is in another.
+In this case also it should give true/Yes.
+
+![Sample 2](/img/sample2.png)
+
+Input coordinates are: (0,0)(4,4)(-2,-2)(5,5)
+
+or
+
+(-2,-2)(5,5)(0,0)(4,4)
+
+### Unidentified coordinate is in another.
+
+This should give true/Yes.
+
+![Sample 2](/img/sample2.png)
+
+Input coordinates are: (0,0)(4,4)(2,-5)(10,2)
+
+## Algorithm
+
+Firstly this checks if two rectangles have the same size. If it doesn't then it finds all integer coordinate of one of rectangles and put it in an array. 
+It needs to find all four coordinates of the second rectangle. Then it checks if any of them is in the first array.  

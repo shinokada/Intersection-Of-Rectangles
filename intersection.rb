@@ -22,5 +22,14 @@ class Intersection
     end
   end
 
+  # find all coordinate of the second one
+  def create_coordinate (xb1, yb1, xb2, yb2)
+
+  end
+
+  # check if one of them is in the other rectangle and vice versa.
+
+
+
 
 end
