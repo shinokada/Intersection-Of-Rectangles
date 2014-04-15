@@ -1,5 +1,4 @@
-require './spec_helper'
-require './intersection.rb'
+require 'spec_helper'
 
 describe Intersection do
   before do
