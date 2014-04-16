@@ -1,4 +1,5 @@
 class Intersection
+  ##
   # may be I can use def initialize and use @xa1 = xa1
   def initialize(xa1, ya1, xa2, ya2, xb1, yb1, xb2, yb2)
     @xa1 = xa1.to_i
@@ -10,7 +11,8 @@ class Intersection
     @xb2 = xb2.to_i
     @yb2 = yb2.to_i
   end
-  
+ 
+  ##
   # compare sizes 
   # both can't have the same size
   def check_size?
@@ -19,10 +21,14 @@ class Intersection
     rec1 == rec2 or rec1 == rec2.reverse
   end
 
+  ##
+  # Create array for all integer coordinate within a rectangle
   def create_arr
     [(@xa1..@xa2).to_a.product((@ya1..@ya2).to_a), (@xb1..@xb2).to_a.product((@yb1..@yb2).to_a)] 
   end
 
+  ##
+  # Check if four coordinates are included in other array
   def included?
     if !check_size?
       first_arr  = create_arr[0]
@@ -32,5 +38,4 @@ class Intersection
       false
     end
   end
-
 end
