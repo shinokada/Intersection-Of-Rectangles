@@ -32,7 +32,7 @@ describe Intersection do
     @xb6 = 2.0
     @yb6 = -1.0
 
-    #No since they are the same size
+    # No since they are the same size
     @xa7 = 1.0
     @ya7 = 1.0
     @xa8 = 2.0
@@ -62,7 +62,6 @@ describe Intersection do
     @xb12 = 10.0
     @yb12 = 2.0
 
-
     @intersection = Intersection.new(@xa1, @ya1, @xa2, @ya2, @xb1, @yb1, @xb2, @yb2)
     @intersection2 = Intersection.new(@xa3, @ya3, @xa4, @ya4, @xb3, @yb3, @xb4, @yb4)
     @intersection3 = Intersection.new(@xa5, @ya5, @xa6, @ya6, @xb5, @yb5, @xb6, @yb6)
@@ -71,18 +70,17 @@ describe Intersection do
     @intersection6 = Intersection.new(@xa11, @ya11, @xa12, @ya12, @xb11, @yb11, @xb12, @yb12)
   end
   
-  specify{ expect(@intersection.create_arr).to eq  [[[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [1, 0], [1, 1], [1, 2], [1, 3], [1, 4], [1, 5], [2, 0], [2, 1], [2, 2], [2, 3], [2, 4], [2, 5], [3, 0], [3, 1], [3, 2], [3, 3], [3, 4], [3, 5], [4, 0], [4, 1], [4, 2], [4, 3], [4, 4], [4, 5], [5, 0], [5, 1], [5, 2], [5, 3], [5, 4], [5, 5]], [[1, 1], [1, 2], [1, 3], [1, 4], [2, 1], [2, 2], [2, 3], [2, 4], [3, 1], [3, 2], [3, 3], [3, 4], [4, 1], [4, 2], [4, 3], [4, 4]]]}
-  specify{ expect(@intersection.check_size?). to eq false }
-  specify{ expect(@intersection2.check_size?). to eq false }
-  specify{ expect(@intersection3.check_size?). to eq false }
-  specify{ expect(@intersection4.check_size?). to eq true }
+  specify { expect(@intersection.create_arr).to eq  [[[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [1, 0], [1, 1], [1, 2], [1, 3], [1, 4], [1, 5], [2, 0], [2, 1], [2, 2], [2, 3], [2, 4], [2, 5], [3, 0], [3, 1], [3, 2], [3, 3], [3, 4], [3, 5], [4, 0], [4, 1], [4, 2], [4, 3], [4, 4], [4, 5], [5, 0], [5, 1], [5, 2], [5, 3], [5, 4], [5, 5]], [[1, 1], [1, 2], [1, 3], [1, 4], [2, 1], [2, 2], [2, 3], [2, 4], [3, 1], [3, 2], [3, 3], [3, 4], [4, 1], [4, 2], [4, 3], [4, 4]]] }
+  specify { expect(@intersection.check_size?). to eq false  }
+  specify { expect(@intersection2.check_size?). to eq false  }
+  specify { expect(@intersection3.check_size?). to eq false  }
+  specify { expect(@intersection4.check_size?). to eq true  }
   
-  specify{ expect(@intersection.included?). to eq true }
-  specify{ expect(@intersection2.included?). to eq true }
-  specify{ expect(@intersection3.included?). to eq false }
-  specify{ expect(@intersection4.included?). to eq false}
-  specify{ expect(@intersection5.included?). to eq true }
-  specify{ expect(@intersection6.included?). to eq true }
+  specify { expect(@intersection.included?). to eq true  }
+  specify { expect(@intersection2.included?). to eq true  }
+  specify { expect(@intersection3.included?). to eq false  }
+  specify { expect(@intersection4.included?). to eq false }
+  specify { expect(@intersection5.included?). to eq true  }
+  specify { expect(@intersection6.included?). to eq true  }
               
 end
-
