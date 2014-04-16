@@ -1,3 +1,5 @@
+##
+# Find at least one of four coordinates are part of another recangle coordinates. 
 class Intersection
   ##
   # may be I can use def initialize and use @xa1 = xa1
@@ -13,7 +15,7 @@ class Intersection
   end
  
   ##
-  # compare sizes 
+  # compare sizes
   # both can't have the same size
   def check_size?
     rec1 = [(@xa2 - @xa1).abs, (@ya2 - @ya1).abs]
