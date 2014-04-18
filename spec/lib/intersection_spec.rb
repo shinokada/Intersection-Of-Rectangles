@@ -3,22 +3,22 @@ require 'spec_helper'
 describe Intersection do
   before do
     # YES
-    param1 = {xa1: '0.0', ya1: '0.0', xa2: '5.0', ya2: '5.0', xb1: '1.0', yb1: '1.0', xb2: '4.0', yb2: '4.0'}
+    param1 = { xa1: '0.0', ya1: '0.0', xa2: '5.0', ya2: '5.0', xb1: '1.0', yb1: '1.0', xb2: '4.0', yb2: '4.0' }
 
     # YES
-    param2 = {xa1: '0.0', ya1: '0.0', xa2: '4.0', ya2: '5.0', xb1: '1.0', yb1: '1.0', xb2: '5.0', yb2: '5.0'}
+    param2 = { xa1: '0.0', ya1: '0.0', xa2: '4.0', ya2: '5.0', xb1: '1.0', yb1: '1.0', xb2: '5.0', yb2: '5.0' }
 
     # NO
-    param3 = {xa1: '0.0', ya1: '0.0', xa2: '4.0', ya2: '4.0', xb1: '-3.0', yb1: '-5.0', xb2: '2.0', yb2: '-1.0'}
+    param3 = { xa1: '0.0', ya1: '0.0', xa2: '4.0', ya2: '4.0', xb1: '-3.0', yb1: '-5.0', xb2: '2.0', yb2: '-1.0' }
 
     # No since they are the same size
-    param4 = {xa1: '1.0', ya1: '1.0', xa2: '2.0', ya2: '3.0', xb1: '2.0', yb1: '1.0', xb2: '4.0', yb2: '2.0'}
+    param4 = { xa1: '1.0', ya1: '1.0', xa2: '2.0', ya2: '3.0', xb1: '2.0', yb1: '1.0', xb2: '4.0', yb2: '2.0' }
  
     # one rectangle in another
-    param5 = {xa1: '0.0', ya1: '0.0', xa2: '4.0', ya2: '4.0', xb1: '-2.0', yb1: '-2.0', xb2: '6.0', yb2: '5.0'}
+    param5 = { xa1: '0.0', ya1: '0.0', xa2: '4.0', ya2: '4.0', xb1: '-2.0', yb1: '-2.0', xb2: '6.0', yb2: '5.0' }
 
     # Unidentified coordinate is in another
-    param6 = {xa1: '0.0', ya1: '0.0', xa2: '4.0', ya2: '4.0', xb1: '2.0', yb1: '-5.0', xb2: '10.0', yb2: '2.0'}
+    param6 = { xa1: '0.0', ya1: '0.0', xa2: '4.0', ya2: '4.0', xb1: '2.0', yb1: '-5.0', xb2: '10.0', yb2: '2.0' }
     @intersection = Intersection.new(param1)
     @intersection2 = Intersection.new(param2)
     @intersection3 = Intersection.new(param3)
