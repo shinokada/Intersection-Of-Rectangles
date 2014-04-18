@@ -3,7 +3,6 @@
 class Intersection
   ##
   # may be I can use def initialize and use @xa1 = xa1
-  #def initialize(xa1, ya1, xa2, ya2, xb1, yb1, xb2, yb2)
   def initialize(params)
     @xa1 = params[:xa1].to_i
     @ya1 = params[:ya1].to_i
