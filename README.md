@@ -1,3 +1,5 @@
+[![PullReview stats](https://www.pullreview.com/github/shinokada/Intersection-Of-Rectangles/badges/master.svg?)](https://www.pullreview.com/github/shinokada/Intersection-Of-Rectangles/reviews/master)
+
 # Intersection of Rectangles
 
 [Problem details](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0059)
