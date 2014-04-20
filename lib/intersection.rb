@@ -17,7 +17,7 @@ class Rectangle
   end
 
   def inside_points
-    (x1..x2).to_a.product((y1..y2).to_a)
+    @inside_points ||= (x1..x2).to_a.product((y1..y2).to_a)
   end
 
   def edge_points
