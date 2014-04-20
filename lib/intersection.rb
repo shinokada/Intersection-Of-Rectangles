@@ -17,7 +17,7 @@ class Intersection
   ##
   # compare sizes
   # both can't have the same size
-  def check_size?
+  def same_size?
     rec1 = [(@xa2 - @xa1).abs, (@ya2 - @ya1).abs]
     rec2 = [(@xb2 - @xb1).abs, (@yb2 - @yb1).abs]
     rec1 == rec2 or rec1 == rec2.reverse
@@ -32,7 +32,7 @@ class Intersection
   ##
   # Check if four coordinates are included in other array
   def included?
-    if !check_size?
+    if !same_size?
       first_arr  = create_arr[0]
       second_arr = create_arr[1]
       first_arr.include?( [@xb1, @yb1]) ||
