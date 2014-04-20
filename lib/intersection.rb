@@ -1,32 +1,37 @@
+class Rectangle
+  attr_reader :x1, :y1, :x2, :y2
+  def initialize(x1, y1, x2, y2)
+    @x1 = x1
+    @y1 = y1
+    @x2 = x2
+    @y2 = y2
+  end
+end
+
+
 ##
 # Find at least one of four coordinates are part of another recangle coordinates.
 class Intersection
   ##
   # may be I can use def initialize and use @xa1 = xa1
   def initialize(params)
-    @xa1 = params[:xa1].to_i
-    @ya1 = params[:ya1].to_i
-    @xa2 = params[:xa2].to_i
-    @ya2 = params[:ya2].to_i
-    @xb1 = params[:xb1].to_i
-    @yb1 = params[:yb1].to_i
-    @xb2 = params[:xb2].to_i
-    @yb2 = params[:yb2].to_i
+    @a = Rectangle.new(params[:xa1].to_i, params[:ya1].to_i, params[:xa2].to_i, params[:ya2].to_i)
+    @b = Rectangle.new(params[:xb1].to_i, params[:yb1].to_i, params[:xb2].to_i, params[:yb2].to_i)
   end
 
   ##
   # compare sizes
   # both can't have the same size
   def same_size?
-    rec1 = [(@xa2 - @xa1).abs, (@ya2 - @ya1).abs]
-    rec2 = [(@xb2 - @xb1).abs, (@yb2 - @yb1).abs]
+    rec1 = [(@a.x2 - @a.x1).abs, (@a.y2 - @a.y1).abs]
+    rec2 = [(@b.x2 - @b.x1).abs, (@b.y2 - @b.y1).abs]
     rec1 == rec2 or rec1 == rec2.reverse
   end
 
   ##
   # Create array for all integer coordinate within a rectangle
   def create_arr
-    [(@xa1..@xa2).to_a.product((@ya1..@ya2).to_a), (@xb1..@xb2).to_a.product((@yb1..@yb2).to_a)]
+    [(@a.x1..@a.x2).to_a.product((@a.y1..@a.y2).to_a), (@b.x1..@b.x2).to_a.product((@b.y1..@b.y2).to_a)]
   end
 
   ##
@@ -34,8 +39,8 @@ class Intersection
   def included?
     first_arr, second_arr  = create_arr
     (
-      [[@xb1, @yb1], [@xb2, @yb2], [@xb1, @yb2], [@xb2, @yb1]].any?{|array| first_arr.include? array} ||
-      [[@xa1, @ya1], [@xa2, @ya1], [@xa1, @ya2], [@xa2, @ya1]].any?{|array| second_arr.include? array}
+      [[@b.x1, @b.y1], [@b.x2, @b.y2], [@b.x1, @b.y2], [@b.x2, @b.y1]].any?{|array| first_arr.include? array} ||
+      [[@a.x1, @a.y1], [@a.x2, @a.y2], [@a.x1, @a.y2], [@a.x2, @a.y1]].any?{|array| second_arr.include? array}
     ) && !same_size?
   end
 end
