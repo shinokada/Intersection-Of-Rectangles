@@ -32,10 +32,10 @@ class Intersection
   ##
   # Check if four coordinates are included in other array
   def included?
-    return false if same_size?
-
     first_arr, second_arr  = create_arr
-    [[@xb1, @yb1], [@xb2, @yb2], [@xb1, @yb2], [@xb2, @yb1]].any?{|array| first_arr.include? array} ||
-    [[@xa1, @ya1], [@xa2, @ya1], [@xa1, @ya2], [@xa2, @ya1]].any?{|array| second_arr.include? array}
+    (
+      [[@xb1, @yb1], [@xb2, @yb2], [@xb1, @yb2], [@xb2, @yb1]].any?{|array| first_arr.include? array} ||
+      [[@xa1, @ya1], [@xa2, @ya1], [@xa1, @ya2], [@xa2, @ya1]].any?{|array| second_arr.include? array}
+    ) && !same_size?
   end
 end
