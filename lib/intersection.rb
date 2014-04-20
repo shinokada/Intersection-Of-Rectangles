@@ -34,8 +34,7 @@ class Intersection
   def included?
     return false if same_size?
 
-    first_arr  = create_arr[0]
-    second_arr = create_arr[1]
+    first_arr, second_arr  = create_arr
     [[@xb1, @yb1], [@xb2, @yb2], [@xb1, @yb2], [@xb2, @yb1]].any?{|array| first_arr.include? array} ||
     [[@xa1, @ya1], [@xa2, @ya1], [@xa1, @ya2], [@xa2, @ya1]].any?{|array| second_arr.include? array}
   end
