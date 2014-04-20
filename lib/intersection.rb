@@ -25,7 +25,11 @@ class Rectangle
   end
 
   def include?(other)
-    edge_points.any?{|point| other.inside_points.include? point} && !same_size?(other)
+    edge_points.any?{|point| other.include_this_point? point} && !same_size?(other)
+  end
+
+  def include_this_point?(point)
+    inside_points.include? point
   end
 end
 
