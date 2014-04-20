@@ -15,7 +15,7 @@ class Rectangle
     rec == other.rec or rec == other.rec.reverse
   end
 
-  def create_array
+  def inside_points
     (x1..x2).to_a.product((y1..y2).to_a)
   end
 
@@ -45,7 +45,7 @@ class Intersection
   ##
   # Create array for all integer coordinate within a rectangle
   def create_arr
-    [@a.create_array, @b.create_array]
+    [@a.inside_points, @b.inside_points]
   end
 
   ##
