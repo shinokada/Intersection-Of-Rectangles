@@ -35,7 +35,14 @@ class Intersection
     if !check_size?
       first_arr  = create_arr[0]
       second_arr = create_arr[1]
-      first_arr.include?([@xb1, @yb1]) || first_arr.include?([@xb2, @yb2]) || first_arr.include?([@xb1, @yb2]) || first_arr.include?([@xb2, @yb1]) || second_arr.include?([@xa1, @ya1]) || second_arr.include?([@xa2, @ya2]) || second_arr.include?([@xa1, @ya2]) || second_arr.include?([@xa2, @ya1])
+      first_arr.include?( [@xb1, @yb1]) ||
+        first_arr.include?([@xb2, @yb2]) ||
+        first_arr.include?([@xb1, @yb2]) ||
+        first_arr.include?([@xb2, @yb1]) ||
+        second_arr.include?([@xa1, @ya1]) ||
+        second_arr.include?([@xa2, @ya2]) ||
+        second_arr.include?([@xa1, @ya2]) ||
+        second_arr.include?([@xa2, @ya1])
     else
       false
     end
