@@ -1,5 +1,6 @@
 class Rectangle
   attr_reader :x1, :y1, :x2, :y2
+
   def initialize(x1, y1, x2, y2)
     @x1 = x1
     @y1 = y1
@@ -19,12 +20,12 @@ class Rectangle
     (x1..x2).to_a.product((y1..y2).to_a)
   end
 
-  def all_points
+  def edge_points
     [[x1, y1], [x2, y2], [x1, y2], [x2, y1]]
   end
 
   def include?(other)
-    all_points.any?{|point| other.inside_points.include? point}
+    edge_points.any?{|point| other.inside_points.include? point} && !same_size?(other)
   end
 end
 
@@ -56,6 +57,6 @@ class Intersection
   # Check if four coordinates are included in other array
   def included?
     first_arr, second_arr  = create_arr
-    (@b.include?(@a) || @a.include?(@b)) && !same_size?
+    @b.include?(@a) || @a.include?(@b)
   end
 end
