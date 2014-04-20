@@ -18,6 +18,10 @@ class Rectangle
   def create_array
     (x1..x2).to_a.product((y1..y2).to_a)
   end
+
+  def all_points
+    [[x1, y1], [x2, y2], [x1, y2], [x2, y1]]
+  end
 end
 
 
@@ -49,8 +53,8 @@ class Intersection
   def included?
     first_arr, second_arr  = create_arr
     (
-      [[@b.x1, @b.y1], [@b.x2, @b.y2], [@b.x1, @b.y2], [@b.x2, @b.y1]].any?{|array| first_arr.include? array} ||
-      [[@a.x1, @a.y1], [@a.x2, @a.y2], [@a.x1, @a.y2], [@a.x2, @a.y1]].any?{|array| second_arr.include? array}
+      @b.all_points.any?{|array| first_arr.include? array} ||
+      @a.all_points.any?{|array| second_arr.include? array}
     ) && !same_size?
   end
 end
