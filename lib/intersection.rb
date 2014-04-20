@@ -6,6 +6,10 @@ class Rectangle
     @x2 = x2
     @y2 = y2
   end
+
+  def rec
+    [(x2 - x1).abs, (y2 - y1).abs]
+  end
 end
 
 
@@ -23,9 +27,7 @@ class Intersection
   # compare sizes
   # both can't have the same size
   def same_size?
-    rec1 = [(@a.x2 - @a.x1).abs, (@a.y2 - @a.y1).abs]
-    rec2 = [(@b.x2 - @b.x1).abs, (@b.y2 - @b.y1).abs]
-    rec1 == rec2 or rec1 == rec2.reverse
+    @a.rec == @b.rec or @a.rec == @b.rec.reverse
   end
 
   ##
