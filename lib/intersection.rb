@@ -10,6 +10,14 @@ class Rectangle
   def rec
     [(x2 - x1).abs, (y2 - y1).abs]
   end
+
+  def same_size?(other)
+    rec == other.rec or rec == other.rec.reverse
+  end
+
+  def create_array
+    (x1..x2).to_a.product((y1..y2).to_a)
+  end
 end
 
 
@@ -27,13 +35,13 @@ class Intersection
   # compare sizes
   # both can't have the same size
   def same_size?
-    @a.rec == @b.rec or @a.rec == @b.rec.reverse
+    @a.same_size?(@b)
   end
 
   ##
   # Create array for all integer coordinate within a rectangle
   def create_arr
-    [(@a.x1..@a.x2).to_a.product((@a.y1..@a.y2).to_a), (@b.x1..@b.x2).to_a.product((@b.y1..@b.y2).to_a)]
+    [@a.create_array, @b.create_array]
   end
 
   ##
