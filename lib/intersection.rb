@@ -42,8 +42,7 @@ class Intersection
   ##
   # may be I can use def initialize and use @xa1 = xa1
   def initialize(params)
-    params_a = %i(xa1 ya1 xa2 ya2).map{|key| params[key]}.map(&:to_i)
-    params_b = %i(xb1 yb1 xb2 yb2).map{|key| params[key]}.map(&:to_i)
+    params_a, params_b = %i(xa1 ya1 xa2 ya2 xb1 yb1 xb2 yb2).map{|key| params[key].to_i}.each_slice(4).to_a
     @rectangle_a = Rectangle.new(*params_a)
     @rectangle_b = Rectangle.new(*params_b)
   end
