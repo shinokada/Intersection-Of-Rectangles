@@ -7,7 +7,7 @@ describe Intersection do
   context "yes 1" do
     let(:params) { { xa1: '0.0', ya1: '0.0', xa2: '5.0', ya2: '5.0',
                      xb1: '1.0', yb1: '1.0', xb2: '4.0', yb2: '4.0' } }
-    specify { expect(intersection.create_arr).to eq [(0..5).to_a.product((0..5).to_a), (1..4).to_a.product((1..4).to_a)] }
+    specify { expect([rectangle_a.inside_points, rectangle_b.inside_points]).to eq [(0..5).to_a.product((0..5).to_a), (1..4).to_a.product((1..4).to_a)] }
     specify { expect(rectangle_a.same_size?(rectangle_b)).to be_false }
     specify { expect(intersection.included?).to be_true }
   end

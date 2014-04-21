@@ -47,15 +47,8 @@ class Intersection
   end
 
   ##
-  # Create array for all integer coordinate within a rectangle
-  def create_arr
-    [rectangle_a.inside_points, rectangle_b.inside_points]
-  end
-
-  ##
   # Check if four coordinates are included in other array
   def included?
-    first_arr, second_arr  = create_arr
     rectangle_b.include?(rectangle_a) || rectangle_a.include?(rectangle_b)
   end
 end
