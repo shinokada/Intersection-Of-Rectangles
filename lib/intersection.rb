@@ -42,8 +42,10 @@ class Intersection
   ##
   # may be I can use def initialize and use @xa1 = xa1
   def initialize(params)
-    @rectangle_a = Rectangle.new(params[:xa1].to_i, params[:ya1].to_i, params[:xa2].to_i, params[:ya2].to_i)
-    @rectangle_b = Rectangle.new(params[:xb1].to_i, params[:yb1].to_i, params[:xb2].to_i, params[:yb2].to_i)
+    params_a = %i(xa1 ya1 xa2 ya2).map{|key| params[key]}.map(&:to_i)
+    params_b = %i(xb1 yb1 xb2 yb2).map{|key| params[key]}.map(&:to_i)
+    @rectangle_a = Rectangle.new(*params_a)
+    @rectangle_b = Rectangle.new(*params_b)
   end
 
   ##
