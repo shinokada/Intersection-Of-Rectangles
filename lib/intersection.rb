@@ -24,8 +24,12 @@ class Rectangle
     [[x1, y1], [x2, y2], [x1, y2], [x2, y1]]
   end
 
-  def include?(other)
-    edge_points.any?{|point| other.include_this_point? point} && !same_size?(other)
+  def included?(other)
+    (include_any_point?(other) || other.include_any_point?(self)) && !same_size?(other)
+  end
+
+  def include_any_point?(other)
+    edge_points.any?{|point| other.include_this_point? point}
   end
 
   def include_this_point?(point)
@@ -50,6 +54,6 @@ class Intersection
   ##
   # Check if four coordinates are included in other array
   def included?
-    rectangle_b.include?(rectangle_a) || rectangle_a.include?(rectangle_b)
+    rectangle_a.included?(rectangle_b)
   end
 end
