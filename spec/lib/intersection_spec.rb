@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Intersection do
-  let(:intersection) { Intersection.new(params) }
-  let(:rectangle_a) { intersection.rectangle_a }
-  let(:rectangle_b) { intersection.rectangle_b }
+describe Rectangle do
+  let(:rectangles) { Rectangle.create_rectangles(params) }
+  let(:rectangle_a) { rectangles[0] }
+  let(:rectangle_b) { rectangles[1] }
 
   context "yes 1" do
     let(:params) { { xa1: '0.0', ya1: '0.0', xa2: '5.0', ya2: '5.0',
@@ -16,7 +16,7 @@ describe Intersection do
       specify { expect(rectangle_a.same_size?(rectangle_b)).to be_false }
     end
     describe "#included?" do
-      specify { expect(intersection.included?).to be_true }
+      specify { expect(Rectangle.included?(params)).to be_true }
     end
   end
 
@@ -27,7 +27,7 @@ describe Intersection do
       specify { expect(rectangle_a.same_size?(rectangle_b)).to be_false }
     end
     describe "#included?" do
-      specify { expect(intersection.included?).to be_true }
+      specify { expect(Rectangle.included?(params)).to be_true }
     end
   end
 
@@ -38,7 +38,7 @@ describe Intersection do
       specify { expect(rectangle_a.same_size?(rectangle_b)).to be_false }
     end
     describe "#included?" do
-      specify { expect(intersection.included?).to be_false }
+      specify { expect(Rectangle.included?(params)).to be_false }
     end
   end
 
@@ -49,7 +49,7 @@ describe Intersection do
       specify { expect(rectangle_a.same_size?(rectangle_b)).to be_true }
     end
     describe "#included?" do
-      specify { expect(intersection.included?).to be_false }
+      specify { expect(Rectangle.included?(params)).to be_false }
     end
   end
 
@@ -57,7 +57,7 @@ describe Intersection do
     let(:params) { { xa1: '0.0', ya1: '0.0', xa2: '4.0', ya2: '4.0',
                      xb1: '-2.0', yb1: '-2.0', xb2: '6.0', yb2: '5.0' } }
     describe "#included?" do
-      specify { expect(intersection.included?).to be_true }
+      specify { expect(Rectangle.included?(params)).to be_true }
     end
   end
 
@@ -65,7 +65,7 @@ describe Intersection do
     let(:params) { { xa1: '0.0', ya1: '0.0', xa2: '4.0', ya2: '4.0',
                      xb1: '2.0', yb1: '-5.0', xb2: '10.0', yb2: '2.0' } }
     describe "#included?" do
-      specify { expect(intersection.included?).to be_true }
+      specify { expect(Rectangle.included?(params)).to be_true }
     end
   end
 end

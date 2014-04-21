@@ -8,6 +8,16 @@ class Rectangle
     @y2 = y2
   end
 
+  def self.included?(params)
+    rectangle_a, rectangle_b = create_rectangles(params)
+    rectangle_a.included?(rectangle_b)
+  end
+
+  def self.create_rectangles(params)
+    params_a, params_b = %i(xa1 ya1 xa2 ya2 xb1 yb1 xb2 yb2).map{|key| params[key].to_i}.each_slice(4).to_a
+    [self.new(*params_a), self.new(*params_b)]
+  end
+
   def rec
     [(x2 - x1).abs, (y2 - y1).abs]
   end
@@ -34,26 +44,5 @@ class Rectangle
 
   def include_this_point?(point)
     inside_points.include? point
-  end
-end
-
-
-##
-# Find at least one of four coordinates are part of another recangle coordinates.
-class Intersection
-  attr_reader :rectangle_a, :rectangle_b
-
-  ##
-  # may be I can use def initialize and use @xa1 = xa1
-  def initialize(params)
-    params_a, params_b = %i(xa1 ya1 xa2 ya2 xb1 yb1 xb2 yb2).map{|key| params[key].to_i}.each_slice(4).to_a
-    @rectangle_a = Rectangle.new(*params_a)
-    @rectangle_b = Rectangle.new(*params_b)
-  end
-
-  ##
-  # Check if four coordinates are included in other array
-  def included?
-    rectangle_a.included?(rectangle_b)
   end
 end
