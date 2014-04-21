@@ -37,30 +37,25 @@ end
 ##
 # Find at least one of four coordinates are part of another recangle coordinates.
 class Intersection
+  attr_reader :rectangle_a, :rectangle_b
+
   ##
   # may be I can use def initialize and use @xa1 = xa1
   def initialize(params)
-    @a = Rectangle.new(params[:xa1].to_i, params[:ya1].to_i, params[:xa2].to_i, params[:ya2].to_i)
-    @b = Rectangle.new(params[:xb1].to_i, params[:yb1].to_i, params[:xb2].to_i, params[:yb2].to_i)
-  end
-
-  ##
-  # compare sizes
-  # both can't have the same size
-  def same_size?
-    @a.same_size?(@b)
+    @rectangle_a = Rectangle.new(params[:xa1].to_i, params[:ya1].to_i, params[:xa2].to_i, params[:ya2].to_i)
+    @rectangle_b = Rectangle.new(params[:xb1].to_i, params[:yb1].to_i, params[:xb2].to_i, params[:yb2].to_i)
   end
 
   ##
   # Create array for all integer coordinate within a rectangle
   def create_arr
-    [@a.inside_points, @b.inside_points]
+    [rectangle_a.inside_points, rectangle_b.inside_points]
   end
 
   ##
   # Check if four coordinates are included in other array
   def included?
     first_arr, second_arr  = create_arr
-    @b.include?(@a) || @a.include?(@b)
+    rectangle_b.include?(rectangle_a) || rectangle_a.include?(rectangle_b)
   end
 end
