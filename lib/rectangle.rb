@@ -1,6 +1,4 @@
 class Rectangle
-  attr_reader :x1, :y1, :x2, :y2
-
   def initialize(x1, y1, x2, y2)
     @x1 = x1
     @y1 = y1
@@ -19,7 +17,7 @@ class Rectangle
   end
 
   def rec
-    [(x2 - x1).abs, (y2 - y1).abs]
+    [(@x2 - @x1).abs, (@y2 - @y1).abs]
   end
 
   def same_size?(other)
@@ -27,11 +25,7 @@ class Rectangle
   end
 
   def inside_points
-    @inside_points ||= (x1..x2).to_a.product((y1..y2).to_a)
-  end
-
-  def edge_points
-    [[x1, y1], [x2, y2], [x1, y2], [x2, y1]]
+    @inside_points ||= (@x1..@x2).to_a.product((@y1..@y2).to_a)
   end
 
   def included?(other)
@@ -45,4 +39,11 @@ class Rectangle
   def include_this_point?(point)
     inside_points.include? point
   end
+
+  private
+
+  def edge_points
+    [[@x1, @y1], [@x2, @y2], [@x1, @y2], [@x2, @y1]]
+  end
 end
+
